@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="main.cpp" />
 		<Unit filename="square.inp" />
+		<Unit filename="square.out" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
