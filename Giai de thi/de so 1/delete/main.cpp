@@ -8,34 +8,43 @@ void init(){
     freopen("delete.out", "w", stdout);
 }
 
-int C(int k, int n){
-    if(n == k || n == 1 || k == 0)
-        return 1;
-    if(k == 1)
-        return n;
-    return C(k-1, n-1) + C(k, n-1);
+
+
+int demSoLuong(int n){
+    int res = 1;
+    for(int i = 0; i < n; i++){
+        res *= 2;
+        res %= DU;
+    }
+
+    return res;
 }
 
 void process(){
     int n;
     cin >> n;
-    int a[n+5];
-    for(int i = 0; i < n; i++){
+    int a[n+5], c[n+5];
+    vector<int> viTri, viTri2;
+    memset(c, 0, sizeof(c));
+    for(int i = 1; i <= n; i++){
         cin >> a[i];
+        if(a[i] == 2){
+            c[i] = c[i-1]+1;
+            if(a[i-1] == 1)
+                viTri2.push_back(i-1);
+        }
+        else
+            c[i] = c[i-1];
+        if(a[i] == 3)
+            viTri.push_back(i);
+
     }
     int res = 0;
-    for(int i = 0; i < n-2; i++){
-        if(a[i] == 1 && a[i+1] == 2){
-            for(int j = i + 2; j < n; j++){
-                if(a[j] == 3){
-                    int kc = j - i - 2;
-                    for(int k = 0; k <= kc; k++){
-                        res += C(k, kc);
-                        res %= DU;
-                    }
-//                    cout << kc << " ";
-                }
-            }
+    for(int i = viTri.size() - 1; i >= 0; i--){
+        for(int j = 0; j < viTri2.size(); j++){
+            if(viTri2[j] < viTri[i])
+                res += demSoLuong(c[viTri[i]] - c[viTri2[j]+1] + 1);
+            res %= DU;
         }
     }
     cout << res;
