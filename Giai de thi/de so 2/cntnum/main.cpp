@@ -17,9 +17,9 @@ void process(){
     long long res = b-a+1;
     long long bcnn = (c*d)/ucln(c, d);
 
-    res -= (b/c - a/c);
-    res -= (b/d - a/d);
-    res += (b/bcnn - a/bcnn);
+    res -= (b/c - (a-1)/c);
+    res -= (b/d - (a-1)/d);
+    res += (b/bcnn - (a-1)/bcnn);
 
     cout << res;
 }
