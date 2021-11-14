@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="GHH.INP" />
+		<Unit filename="GHH.OUT" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>

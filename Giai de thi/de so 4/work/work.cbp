@@ -2,12 +2,12 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="trochoi" />
+		<Option title="work" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/trochoi" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Debug/work" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -16,7 +16,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/trochoi" prefix_auto="1" extension_auto="1" />
+				<Option output="bin/Release/work" prefix_auto="1" extension_auto="1" />
 				<Option object_output="obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
@@ -33,8 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
-		<Unit filename="trochoi.inp" />
-		<Unit filename="trochoi.out" />
+		<Unit filename="work.inp" />
+		<Unit filename="work.out" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

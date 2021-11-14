@@ -33,6 +33,8 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="sdb.inp" />
+		<Unit filename="sdb.out" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
