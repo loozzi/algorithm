@@ -15,22 +15,17 @@ int main()
     }
     sort(a.begin(), a.end());
     float res = 0;
-    while(a.size() != 1){
-        b.clear();
-        for(int i = 0; i < a.size()/2; i++){
-            b.push_back(a[i*2] + a[i * 2 + 1]); // a[i] + a[a.size() - i - 1];
-            res += (float)(a[i] + a[a.size() - i - 1]) * 5 / 100;
-        }
-        if(a.size() & 1)
-            b.push_back(a[a.size() -1]); // a[a.size() /2);
-
-        sort(b.begin(), b.end());
-        for(int i = 0 ; i < b.size(); i++){
-            cout << b[i] << " ";
-        }
-        cout << endl;
-        a.clear();
-        a = b;
+    queue<float> q;
+    for(int i = 0; i < a.size(); i++){
+        q.push(a[i]);
+    }
+    while(q.size() > 1){
+        float a = q.front();
+        q.pop();
+        a += q.front();
+        q.pop();
+        q.push(a);
+        res += a * 0.05;
     }
     cout << res;
 }

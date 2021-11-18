@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+bool dps(int n){
+    int tich = 1, tong = 0;
+    while(n){
+        tich *= (n%10);
+        tong += (n%10);
+        n/=10;
+    }
+    return (tich%tong==0);
+}
+
+int main()
+{
+    freopen("sodps.inp", "r", stdin);
+    freopen("sodps.out", "w", stdout);
+    long long n;
+    cin >> n;
+    vector<long long> a;
+    long long i = 0;
+    while(a.size() < n){
+        i++;
+        if(dps(i))
+            a.push_back(i);
+    }
+    cout << a[n-1];
+
+
+}
