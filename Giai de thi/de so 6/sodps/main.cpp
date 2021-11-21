@@ -27,5 +27,7 @@ int main()
     }
     cout << a[n-1];
 
+    for(int i= 0 ; i < 100; i++)
+        cout << a[i] << " ";
 
 }
