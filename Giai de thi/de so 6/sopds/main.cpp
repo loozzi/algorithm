@@ -14,8 +14,8 @@ bool dps(int n){
 
 int main()
 {
-    freopen("sodps.inp", "r", stdin);
-    freopen("sodps.out", "w", stdout);
+    freopen("sopds.inp", "r", stdin);
+    freopen("sopds.out", "w", stdout);
     long long n;
     cin >> n;
     vector<long long> a;

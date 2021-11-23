@@ -35,6 +35,7 @@ void process(){
         }
     }
     k %= kk + 1;
+    a=b;
     for(int i = 0; i < k; i++){
         reverse(a.begin() + u-1, a.begin() + v);
         reverse(a.begin() + m-1, a.begin() + l);
