@@ -42,15 +42,18 @@ void dij(int u, int v){
 }
 
 void dijkstra(int u, int v){
-    int g = u;
+    int g;
+    for(int i = 0; i < 3001; i++)
+        f[i] = INT_MAX;
+    f[u] = 0;
     do{
-        g = e;
+        g = v;
         for(int i = 1 ;i <= n; i++){
             if(!mark[i] && f[i] < f[g])
                 g = i;
         }
         mark[g] = true;
-        if(f[g] == INT_MAX || g == e) break;
+        if(f[g] == INT_MAX || g == v) break;
         for(int i = 0; i < ke[g].size(); i++){
             int k = ke[g][i].first;
             if(!mark[k]){
@@ -82,8 +85,6 @@ void trace(int u, int v){
 
 void process(){
     cin >> n >> m >> s >> e;
-    for(int i = 0; i < 3001; i++)
-        f[i] = INT_MAX;
     for(int i = 0; i < m; i++){
         cin >> u >> v >> w;
         ke[u].push_back({v, w});
@@ -91,7 +92,6 @@ void process(){
 //        a[u][v] = w;
 //        a[v][u] = w;
     }
-    f[s] = 0;
     dij(s, e);
     cout << f[e] << endl;
     trace(s, e);
