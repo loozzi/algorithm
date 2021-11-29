@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="average.inp" />
+		<Unit filename="average.out" />
 		<Unit filename="main.cpp" />
 		<Extensions />
 	</Project>
