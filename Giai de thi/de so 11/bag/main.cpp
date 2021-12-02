@@ -2,12 +2,7 @@
 
 using namespace std;
 
-
-
-int main()
-{
-    freopen("bag.inp", "r", stdin);
-    freopen("bag.out", "w", stdout);
+void process1(){
     int n, m;
     cin >> n >> m;
     int v[n+1], w[n+1];
@@ -27,4 +22,50 @@ int main()
         }
     }
     cout << d[n][m];
+}
+
+struct dt{
+    int v, w, id;
+};
+
+bool cmp(dt a, dt b){
+    return float(a.v)/a.w > float(b.v)/b.w;
+}
+
+
+int res = INT_MIN;
+int f = 0, g = 0;
+vector<dt> a;
+long n, m, u, v;
+
+int Try(int i, long w, long v){
+    if(w > m) return 0;
+    if(i == n && w <= m)
+        return v;
+    int l = Try(i+1, w + a[i].w, v + a[i].v);
+    int r = Try(i+1, w, v);
+    return max(l, r);
+}
+
+void process2(){
+    cin >> n >> m;
+    for(int i = 0; i < n; i++){
+        dt tmp;
+        cin >> u >> v;
+        tmp.w = u;
+        tmp.v = v;
+        tmp.id = i+1;
+        a.push_back(tmp);
+    }
+    sort(a.begin(), a.end(), cmp);
+    cout << Try(0, 0, 0);
+}
+
+
+int main()
+{
+    freopen("bag.inp", "r", stdin);
+    freopen("bag.out", "w", stdout);
+
+    process2();
 }
