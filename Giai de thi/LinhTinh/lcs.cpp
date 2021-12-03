@@ -18,7 +18,7 @@ int main(){
                 if(s1[i] == s2[j])
                     a[i][j] = a[i-1][j-1] + 1;
                 else
-                    a[i][j] = max(a[i-1][i], a[i][j-1]);
+                    a[i][j] = max(a[i-1][j], a[i][j-1]);
             }
         }
     }
@@ -27,7 +27,7 @@ int main(){
     int i = n-1, j = m-1;
     while(a[i][j]){
         if(s1[i] == s2[j]){
-            res += s1[i];
+            res = s1[i] + res;
             i--;
             j--;
         }
