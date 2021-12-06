@@ -7,36 +7,39 @@ void init(){
     freopen("trochoi.out", "w", stdout);
 }
 
+struct dt{
+    string s;
+    int vl;
+};
 
-
-bool cmp(pair<string, int> a, pair<string, int> b)
-{
-    return a.second < b.second;
-}
-
-int dem(string s){
-    int res;
+int convert(string s){
+    int res = 0;
     for(int i = 0; i < s.length(); i++){
-        if(s[i] <= '9' && s[i] >= '0'){
+        if(s[i] >= '0' && s[i] <= '9')
             res++;
-        }
     }
     return res;
+}
+
+bool cmp(dt a, dt b)
+{
+    return a.vl < b.vl;
 }
 
 void process(){
     int n;
     cin >> n;
-    vector<pair<string, int> > a;
+    vector<dt> a;
     for(int i = 0; i < n; i++){
-        pair<string, int> tmp;
-        cin >> tmp.first;
-        tmp.second = dem(tmp.first);
+        dt tmp;
+        cin >> tmp.s;
+        tmp.vl = convert(tmp.s);
         a.push_back(tmp);
     }
     sort(a.begin(), a.end(), cmp);
-    for(int i = 0; i < a.size(); i++)
-        cout << a[i].first << endl;
+    for(int i = 0; i < a.size(); i++){
+        cout << a[i].s << endl;
+    }
 }
 
 int main()

@@ -2,32 +2,26 @@
 
 using namespace std;
 
-int n;
-string s;
-
-bool check(int len){
-    set<string> st;
-    for(int i = 0; i < n - len + 1; i++){
-        string subs = s.substr(i, len);
-        if(st.find(subs) != st.end())
-            return false;
-        st.insert(subs);
-    }
-    return true;
-}
-
 int main()
 {
 //    freopen("diffsstr.inp", "r", stdin);
 //    freopen("diffsstr.out", "w", stdout);
 
+    int n;
     cin >> n;
+    string s;
     cin >> s;
+
+    bool c[255];
     int res = n;
-    for(int i = 1; i <= n; i++){
-        if(check(i)){
-            res = i;
-            break;
+    for(int i = 0; i < n; i++){
+        memset(c, false, sizeof(c));
+        for(int j = i; j < res; j++){
+            if(c[s[j]] ==  true){
+                res = min(res, j-i);
+            } else {
+                c[s[j]] = true;
+            }
         }
     }
     cout << res;

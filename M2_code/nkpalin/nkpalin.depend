@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1625024067 source:c:\m2_code\nkpalin\main.cpp
-	<iostream>
-	<string>
-	<algorithm>
-	<vector>
-
