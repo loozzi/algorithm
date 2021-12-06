@@ -1,0 +1,2 @@
+Cho dãy A1, A2, A3,...An. Hãy tim một dãy con tăng không ngặt dài nhất của dãy(dãy con có thể không liên tiếp);
+1 <= n <= 10^3

@@ -4,8 +4,8 @@ using namespace std;
 
 int main()
 {
-//    freopen("diffsstr.inp", "r", stdin);
-//    freopen("diffsstr.out", "w", stdout);
+    freopen("diffsstr.inp", "r", stdin);
+    freopen("diffsstr.out", "w", stdout);
 
     int n;
     cin >> n;

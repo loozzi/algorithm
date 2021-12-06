@@ -1,0 +1,2 @@
+Cho dãy A1, A2,... An. Hãy tìm mọt dãy con tăng ngặt dài nhất của dãy. Dãy con có các phần tử ko nhất thiết phải liên tiếp.
+1 <= n <= 10^5
