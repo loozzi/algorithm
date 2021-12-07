@@ -18,23 +18,19 @@ int main()
     freopen("gallery.out", "w", stdout);
     int n, m, u, v, t;
     cin >> n >> m;
-    vector<dt> a;
+    dt a[m+5];
     int f[m];
     for(int i = 0; i < m; i++)
         f[i] = INT_MAX;
-    for(int i = 0 ; i < m; i++){
-        cin >> u >> v >> t;
-        dt tmp;
-        tmp.a = u;
-        tmp.b = v;
-        tmp.t = t;
-        a.push_back(tmp);
+    a[1].a = a[1].b = a[1].t = 0;
+    for(int i = 2 ; i <= m+1; i++){
+        cin >> a[i].a >> a[i].b >> a[i].t;
     }
-    sort(a.begin(), a.end(), cmp);
-    for(int i = 0; i < m; i++){
+    sort(a+1, a+2+m, cmp);
+    for(int i = 1; i <= m; i++){
         for(int j = 0; j < i; j++){
-            if(a[j].a <= a[i].b && f[i]>f[j] + a[i].t)
-                f[i]=f[j] + a[i].t;
+            if(a[j].a <= a[i].b)
+                f[i]= min(f[j] + a[i].t, f[i]);
         }
     }
     cout << f[m-1];
