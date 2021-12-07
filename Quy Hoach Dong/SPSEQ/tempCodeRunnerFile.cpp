@@ -1,0 +1,1 @@
+res = max(res, 2*min(t[i], g[n]-g[i])-1);

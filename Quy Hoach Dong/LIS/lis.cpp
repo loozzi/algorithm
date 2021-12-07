@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+
 int main(){
     freopen("lis.inp", "r", stdin);
     freopen("lis.out", "w", stdout);
