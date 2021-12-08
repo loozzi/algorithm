@@ -9,12 +9,12 @@ int pow10[201];
 
 
 
+int f[201];
 
 void testcase1(){
     int k;
     cin >> k;
     k *= 9;
-    int f[201];
     f[0] = 1;
     for(int i = 1; i <= 200; i++){
         f[i] = f[i-1] * 10 % k;
@@ -23,7 +23,7 @@ void testcase1(){
     for(int i = 1; i <= 200; i++){
         for(int j = 0; j <= i; j++){
             if((8 * f[i] - 2*f[i-j] - 6) % k == 0){
-                for(int ii = 0; ii < i; ii++)
+                for(int ii = 0; ii < j; ii++)
                     cout << "8";
                 for(int jj = 0; jj < i- j; jj++)
                     cout << "6";
@@ -58,8 +58,8 @@ void testcase() {
 }
  
 int main() {
-    freopen("luckynum.inp", "r", stdin);
-    freopen("luckynum.out", "w", stdout);
+    // freopen("luckynum.inp", "r", stdin);
+    // freopen("luckynum.out", "w", stdout);
 	int tc; 
     cin >> tc;
 	while(tc--) testcase1();
