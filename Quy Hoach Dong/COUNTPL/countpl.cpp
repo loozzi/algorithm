@@ -6,23 +6,33 @@ int main(){
     freopen("countpl.out", "w", stdout);
     string s;
     cin >> s;
-    s = " " + s;
     int n = s.length();
     bool f[n+1][n+1];
-    int res = 0;
-    for(int i = 1; i < n; i++){
-        for(int j = 1; j < n; j++){
-            if(i == j)
-                f[i][j] = true;
-            else if(s[i] == s[i+1])
-                f[i][i+1] = true;
-            else if(s[i] == s[j])
-                f[i][j] = f[i+1][j]-1;
-            else
-                f[i][j] = false;
-            if(f[i][j])
-                res = max(res, abs(i-j));
+    int d[n+1];
+    memset(f, false, sizeof(f));
+    for(int i = 0; i < n; i++){
+        for(int j = 0; j <= n-i-1; j++){
+            if(i==0) f[j][j] = true;
+            else if(i == 1){
+                if(s[j] == s[j+1]) f[j][j+1] = true;
+                else f[j][j+1] = false;
+            } else {
+                if(s[j] != s[i+j]) f[j][j+i] = false;
+                else f[j][j+i] = f[j+1][j+i-1];
+            }
         }
     }
-    cout << res;
+    d[0] = 1;
+    for(int i = 1; i < n; i++){
+        if(f[0][i]) d[i] = 1;
+        else{
+            int min = INT_MAX;
+            for(int j = 1; j <= i; j++){
+                if(f[j][i] && d[j-1] + 1 < min)
+                    min = d[j-1] + 1;
+            }
+            d[i] = min;
+        }
+    }
+    cout << d[n-1];
 }
