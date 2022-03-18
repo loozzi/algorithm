@@ -14,8 +14,9 @@ int main(){
     }
     memset(f, 0, sizeof(f));
     f[r[0]] = h[0];
+    res = f[r[0]];
     for(int i = 1; i < n; i++){
-        for(int j = r[i]; r[i] <= rmax; j++){
+        for(int j = r[i]; j <= rmax; j++){
             f[r[i]] = max(f[r[i]], f[j] + h[i]);
             res = max(res, f[r[i]]);
         }
